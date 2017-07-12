@@ -3,6 +3,7 @@
 This is a set of simple example of hadoop implementaion on relational patterns.   
 * Union
 * Difference
+* Intersection
 
 ## Usage   
 Assuming environment variables are set as follows:   
