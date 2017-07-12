@@ -108,7 +108,7 @@ public class Intersection {
 	public static void main(String[] args) throws Exception
 	{
 		if (args.length != 4 ){
-			System.err.println ("Usage :<inputlocation1> <inputlocation2> <outputlocation>");
+			System.err.println ("Usage :<inputlocation1> <inputlocation2> <outputlocationTmp> <outputlocation>");
 			System.exit(0);
 		}
 

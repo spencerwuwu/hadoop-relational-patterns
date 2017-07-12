@@ -38,21 +38,6 @@ public class Union {
 		}
 	}
 
-	public static class MultipleMaping extends Mapper<LongWritable,Text,Text,IntWritable>
-	{
-
-		private final static IntWritable one = new IntWritable(1);
-		private Text keyEmit = new Text();
-		public void map(LongWritable k, Text value, Context context) throws IOException, InterruptedException
-		{
-			StringTokenizer itr = new StringTokenizer(value.toString());
-			while (itr.hasMoreTokens())
-			{
-				keyEmit.set(itr.nextToken());
-				context.write(keyEmit, one);
-			}
-		}
-	}
 
 	public static class MultipleReducer extends Reducer<Text,IntWritable,Text,IntWritable>
 	{
@@ -89,7 +74,7 @@ public class Union {
 		Job job = Job.getInstance(c,"Union");
 		job.setJarByClass(Union.class);
 		MultipleInputs.addInputPath(job, p1, TextInputFormat.class, MultipleMap.class);
-		MultipleInputs.addInputPath(job,p2, TextInputFormat.class, MultipleMaping.class);
+		MultipleInputs.addInputPath(job,p2, TextInputFormat.class, MultipleMap.class);
 		job.setReducerClass(MultipleReducer.class);
 		job.setCombinerClass(MultipleReducer.class);
 		job.setOutputKeyClass(Text.class);
