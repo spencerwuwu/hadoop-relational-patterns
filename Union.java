@@ -74,7 +74,7 @@ public class Union {
 		Job job = Job.getInstance(c,"Union");
 		job.setJarByClass(Union.class);
 		MultipleInputs.addInputPath(job, p1, TextInputFormat.class, MultipleMap.class);
-		MultipleInputs.addInputPath(job,p2, TextInputFormat.class, MultipleMap.class);
+		MultipleInputs.addInputPath(job, p2, TextInputFormat.class, MultipleMap.class);
 		job.setReducerClass(MultipleReducer.class);
 		job.setCombinerClass(MultipleReducer.class);
 		job.setOutputKeyClass(Text.class);
